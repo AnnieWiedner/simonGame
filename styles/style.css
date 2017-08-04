@@ -1,0 +1,80 @@
+h1 {
+  text-align: center;
+  font-family: Arial;
+}
+
+#start {
+  width: 150px;
+  height: 50px;
+  font-family: Arial;
+  font-size: 20px;
+  line-height: 50px;
+  text-align: center;
+  margin: 30px auto;
+}
+
+#start:hover {
+  cursor: pointer;
+}
+
+#restart {
+  position: fixed;
+  background-color: orange;
+  padding: 10px;
+  right: 5px;
+  top: 5px;
+}
+
+.showing {
+  border: rgba(0, 0, 0, 1) 2px solid;
+  color: rgba(0, 0, 0, 1);
+}
+
+.hidden {
+  border: rgba(0, 0, 0, 0) 2px solid;
+  color: rgba(0, 0, 0, 1);
+  background-color: aqua;
+}
+
+
+.button {
+  height: 150px;
+  width: 150px;
+  margin: 5px;
+  border-radius: 15px;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.game {
+  display: flex;
+  width: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+#red {
+  background-color: red;
+  border: red 1px solid;
+  opacity: 0.5;
+}
+
+#green {
+  background-color: green;
+  border: green 1px solid;
+  opacity: 0.5;
+}
+
+#blue {
+  background-color: blue;
+  border: blue 1px solid;
+  opacity: 0.5;
+}
+
+#yellow {
+  background-color: yellow;
+  border: yellow 1px solid;
+  opacity: 0.5;
+}
