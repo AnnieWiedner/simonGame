@@ -1,39 +1,72 @@
+body {
+  font-family: Arial;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+}
+
 h1 {
   text-align: center;
-  font-family: Arial;
 }
 
-#start {
+#message {
   width: 150px;
-  height: 50px;
-  font-family: Arial;
+  height: 40px;
   font-size: 20px;
-  line-height: 50px;
+  line-height: 40px;
   text-align: center;
-  margin: 30px auto;
+  margin: 20px auto;
+  background-color: #404040;
 }
 
-#start:hover {
+#message:hover {
   cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+  border: rgba(255, 255, 255, 0.7) 2px solid;
 }
 
 #restart {
   position: fixed;
   background-color: orange;
-  padding: 10px;
-  right: 5px;
-  top: 5px;
+  right: 20px;
+  bottom: 20px;
+  height: 40px;
+  line-height: 40px;
+  width: 130px;
+  text-align: center;
+  font-size: 20px;
 }
 
-.showing {
-  border: rgba(0, 0, 0, 1) 2px solid;
-  color: rgba(0, 0, 0, 1);
+.loser {
+  position: absolute;
+  display: block;
+  right: 0;
+  left: 0;
+  text-align: center;
+  top: 250px;
+  padding: 30px;
+  font-size: 40px;
+  background-color: rgba(255, 0, 0, 0.3);
+  font-weight: bold;
 }
 
-.hidden {
-  border: rgba(0, 0, 0, 0) 2px solid;
-  color: rgba(0, 0, 0, 1);
-  background-color: aqua;
+
+
+#restart:hover {
+  cursor: pointer;
+}
+
+.over {
+  box-shadow: 0px 0px 30px orange;
+}
+
+.start {
+  border: rgba(255, 255, 255, 1) 2px solid;
+  color: rgba(255, 255, 255, 1);
+}
+
+.replay {
+  border: rgba(255, 255, 255, 0) 2px solid;
+  color: rgba(255, 255, 255, 1);
 }
 
 
@@ -56,25 +89,33 @@ h1 {
 }
 
 #red {
-  background-color: red;
-  border: red 1px solid;
+  background-color: #f4013e;
+  border: #b2012d 2px solid;
   opacity: 0.5;
 }
 
 #green {
-  background-color: green;
-  border: green 1px solid;
+  background-color: #01f401;
+  border: #01b201 2px solid;
   opacity: 0.5;
 }
 
 #blue {
-  background-color: blue;
-  border: blue 1px solid;
+  background-color: #0197F6;
+  border: #016eb2 2px solid;
   opacity: 0.5;
 }
 
 #yellow {
-  background-color: yellow;
-  border: yellow 1px solid;
+  background-color: #f4f401;
+  border: #cbcb01 2px solid;
   opacity: 0.5;
+}
+
+#counter {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 20px;
+  font-weight: bold;
 }

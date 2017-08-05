@@ -14,8 +14,10 @@ var red = document.getElementById('red');
 var green = document.getElementById('green');
 var blue = document.getElementById('blue');
 var yellow = document.getElementById('yellow');
-var start = document.getElementById("start");
-
+var message = document.getElementById("message");
+var restart = document.getElementById("restart");
+var counter = document.getElementById("count");
+var lose = document.getElementById("lose");
 
 var index;
 
@@ -44,7 +46,8 @@ var lightUp = function(x) {
       break;
     case "green":
       btn = document.getElementById('green');
-      btn.style.opacity = 1;
+      btn.
+      style.opacity = 1;
       greenSound.play();
       setTimeout(function() {
         dimDown("green")
@@ -90,7 +93,6 @@ var dimDown = function(x) {
   }
 }
 
-
 var i = 0;
 
 var displayPattern = function() {
@@ -99,7 +101,22 @@ var displayPattern = function() {
   console.log(correctPattern)
   pattern = setInterval(function() {
     lightUp(correctPattern[i])
-    if (i > correctPattern.length) {
+    if (i >= correctPattern.length) {
+      clearInterval(pattern);
+      playersTurn = true;
+    }
+    else {
+      i++;
+    }
+  }, 1000)
+  i = 0;
+}
+
+var replayPattern = function() {
+  playersTurn = false;
+  pattern = setInterval(function() {
+    lightUp(correctPattern[i])
+    if (i >= correctPattern.length) {
       clearInterval(pattern);
       playersTurn = true;
     }
@@ -122,6 +139,8 @@ var addMove = function() {
   var index = Math.floor(Math.random()*4);
   var color = colors[index];
   correctPattern.push(color);
+  counter.innerHTML = count;
+
 }
 
 var playerMove = function(color) {
@@ -138,8 +157,11 @@ var playerMove = function(color) {
     }
   }
   else {
-    alert("WRONG");
+    lose.classList.add('loser');
+    lose.innerHTML = "You Lose!"
+    playersTurn = false;
     restartGame();
+    restart.classList.add('over')
   }
 }
 
@@ -167,9 +189,25 @@ yellow.addEventListener("click", function(){
   }
 })
 
-start.addEventListener("click", function(){
-  displayPattern();
-  start.classList.add("hidden");
-  start.classList.remove("showing");
-  start.innerHTML = "REPLAY";
+restart.addEventListener("click", function() {
+  restartGame();
+  restart.classList.remove('over');
+  lose.classList.remove('loser');
+  lose.innerHTML = "";
+  message.classList.remove("replay");
+  message.classList.add("start");
+  message.innerHTML = "START";
+})
+
+message.addEventListener("click", function(){
+  if (message.classList.contains('start')) {
+    displayPattern();
+    message.classList.add("replay");
+    message.classList.remove("start");
+    message.innerHTML = "REPLAY";
+  }
+
+  else if (message.classList.contains('replay')) {
+    replayPattern();
+  }
 })
